@@ -2,6 +2,7 @@ from openai import OpenAI
 
 
 def generate_comment(
+    client: OpenAI,
     subject: str,
     teacher: str,
     student: str,
@@ -14,9 +15,6 @@ def generate_comment(
     tardy: str,
     absence: str,
 ) -> str:
-    with open("key") as keyFile:
-        client = OpenAI(api_key=keyFile.readline())
-
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
