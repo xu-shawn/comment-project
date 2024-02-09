@@ -1,9 +1,14 @@
 import gpt
-
+from openai import OpenAI
+from dotenv import load_dotenv
+    
+load_dotenv("key")
+client = OpenAI()
 
 def main() -> None:
     print(
         gpt.generate_comment(
+            client,
             "Chemistry",
             "Brad Brad Anderson",
             "Joe Smith",
